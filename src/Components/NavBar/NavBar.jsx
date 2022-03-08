@@ -1,6 +1,7 @@
 import React from 'react'
 import bookcase from '../../bookcase.png';
 import { Navbar, Nav,NavDropdown, Container  } from 'react-bootstrap';
+import CartWidget from '../CartWidget/CartWidget';
 
 function NavBar() {
   return (
@@ -11,6 +12,7 @@ function NavBar() {
             <img src={bookcase} alt="BookImage"/>
             Tienda de Libros
           </Navbar.Brand>
+          <CartWidget />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
