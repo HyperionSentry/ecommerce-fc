@@ -2,3 +2,13 @@ h1 {
     margin: 20px;
     background: #91cdbc69;
 }
+
+img {
+    width: 50%;
+}
+
+.cardPrice {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}

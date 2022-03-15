@@ -1,6 +1,5 @@
 import {React, useState } from 'react'
 import './ItemCount.css'
-import book from '../../img/harry-potter-y-el-misterio-del-principe-harry-potter-6.jpg';
 
 
 function ItemCount({ stock, initial, onAdd}) {
@@ -24,14 +23,12 @@ function ItemCount({ stock, initial, onAdd}) {
  
   return (
     <div className="counter">
-    <h1>Agregar al carrito</h1>
-    <img src={book} alt="book image" className="book__img"/>
     <div className="btn__container">      
-      <button className="control__btn" onClick={increase}>+</button>
+      <button className="btn btn-outline-primary btn-block" onClick={increase}>+</button>
       <span className="counter__output">{counter}</span>
-      <button className="control__btn" onClick={decrease}>-</button>
+      <button className="btn btn-outline-primary btn-block" onClick={decrease}>-</button>
     </div>
-    <button className="buy" onClick={onAdd}>Agregar al carrito</button>
+    <button className='btn btn-outline-primary btn-block' onClick={onAdd}>Agregar al carrito</button>
   </div>
   )
 }

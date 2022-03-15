@@ -1,7 +1,8 @@
 import React from 'react'
-import bookcase from '../../bookcase.png';
+import bookcase from '../../img/bookcase.png';
 import { Navbar, Nav,NavDropdown, Container  } from 'react-bootstrap';
 import CartWidget from '../CartWidget/CartWidget';
+import './NavBar.css'
 
 function NavBar() {
   return (
@@ -9,7 +10,7 @@ function NavBar() {
       <Navbar bg='dark' variant='dark' expand="lg">
         <Container>
           <Navbar.Brand>
-            <img src={bookcase} alt="BookImage"/>
+            <img src={bookcase} alt="BookImage" className='img_Icon'/>
             Tienda de Libros
           </Navbar.Brand>
           <CartWidget />
@@ -22,6 +23,8 @@ function NavBar() {
                 <NavDropdown.Item href="#Ciencia Ficcion">Ciencia Ficción</NavDropdown.Item>
                 <NavDropdown.Item href="#Drama">Drama</NavDropdown.Item>
                 <NavDropdown.Item href="#Terror">Terror</NavDropdown.Item>
+                <NavDropdown.Item href="#Terror">Aventura</NavDropdown.Item>
+                <NavDropdown.Item href="#Terror">Didactico</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#Todas">Todas</NavDropdown.Item>
               </NavDropdown>

@@ -3,11 +3,6 @@
     width: 100%;
 }
 
-.counter h1 {
-    font-size: 40px;
-    font-weight: 500;
-}
- 
 .counter__output {
     font-size: 30px;
     color: rgb(9, 24, 140);
@@ -23,41 +18,3 @@
     column-gap: 20px;
 }
  
-.control__btn {
-    font-size: 30px;
-    margin: 25px 30px;
-    padding: 5px 30px;
-    background-color: #ade1e1;
-    color: rgb(16, 0, 54);
-    border: 1px solid rgb(16, 0, 54);
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-    font-weight: 700;
-}
- 
-.control__btn:hover {
-    background-color: rgb(16, 0, 54);
-    color: rgb(255, 255, 255);
-    border: 1px solid rgb(16, 0, 54);
-}
- 
-.buy {
-    font-size: 30px;
-    padding: 10px 20px;
-    background-color:#ade1e1;
-    color: rgb(16, 0, 54);
-    border: 1px solid rgb(9, 24, 140);
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-    font-weight: 700;
-}
- 
-.buy:hover {
-    background-color: rgb(50, 59, 107);
-    color: rgb(255, 255, 255);
-    border: 1px solid rgb(9, 24, 140);
-}
-
-.book__img {
-    width: 25%;
-}
