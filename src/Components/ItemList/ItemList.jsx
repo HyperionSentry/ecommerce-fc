@@ -1,25 +1,12 @@
-import {React, useEffect, useState} from 'react'
+import React from 'react'
 import Item from '../Item/Item'
-import {fetchBooks} from '../../fetchBooks/fetchBooks'
 
-function ItemList() {
-
-const [prods, setProds] = useState([])
-const [loading, setLoading] = useState(true)
-
-useEffect(() => {
-    fetchBooks
-    .then(response => setProds(response))
-    .catch(error => console.log(error))
-    .finally(()=>setLoading(false))
-  
-  }, [])
-
+function ItemList({products,state}) {
 
   return (
     <>
         { 
-        loading ? <h2>Buscando libros...</h2> : prods.map( (prod) =>  Item(prod) ) 
+        state ? <h2>Buscando libros...</h2> : products.map( (prod) =>  Item(prod) ) 
         }
     </> 
     )
