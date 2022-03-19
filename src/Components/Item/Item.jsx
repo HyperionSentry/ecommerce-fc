@@ -5,6 +5,7 @@ const addToCart = () => {
   alert(`Se han agregado los libros al carrito.`)
 }
 
+
 function Item(prod) {
   return (
     <div key={prod.id} className='col-md-4'>
