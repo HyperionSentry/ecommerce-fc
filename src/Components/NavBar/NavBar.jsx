@@ -1,4 +1,5 @@
 import React from 'react'
+import  { NavLink } from 'react-router-dom'
 import bookcase from '../../img/bookcase.png';
 import { Navbar, Nav,NavDropdown, Container  } from 'react-bootstrap';
 import CartWidget from '../CartWidget/CartWidget';
@@ -10,10 +11,14 @@ function NavBar() {
       <Navbar bg='dark' variant='dark' expand="lg">
         <Container>
           <Navbar.Brand>
-            <img src={bookcase} alt="BookImage" className='img_Icon'/>
+            <NavLink to ="/">
+              <img src={bookcase} alt="BookImage" className='img_Icon'/>
+            </NavLink>
             Tienda de Libros
           </Navbar.Brand>
-          <CartWidget />
+          <NavLink to ="CartWidget">
+            <CartWidget />
+          </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -21,12 +26,13 @@ function NavBar() {
               <Nav.Link href="#Tienda">Tienda</Nav.Link>
               <NavDropdown title="Categorias" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Ciencia Ficcion">Ciencia Ficción</NavDropdown.Item>
-                <NavDropdown.Item href="#Drama">Drama</NavDropdown.Item>
                 <NavDropdown.Item href="#Terror">Terror</NavDropdown.Item>
                 <NavDropdown.Item href="#Terror">Aventura</NavDropdown.Item>
                 <NavDropdown.Item href="#Terror">Didactico</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#Todas">Todas</NavDropdown.Item>
+                <NavLink to ="/">
+                  <NavDropdown.Item href="#Todas">Todas</NavDropdown.Item>
+               </NavLink> 
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

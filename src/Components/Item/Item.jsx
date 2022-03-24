@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 
-const addToCart = () => {
+const addToCart = (prod) => {
   alert(`Se han agregado los libros al carrito.`)
+  console.log(prod.id);
 }
 
 
@@ -19,7 +21,9 @@ function Item(prod) {
 
     </div>
     <div className='card-footer'>
-    <button className='btn btn-outline-primary btn-block'>Detalles del Producto</button>
+        <Link to ={`detalle/${prod.id}`}>
+            <button className='btn btn-outline-primary btn-block'>Detalles del Producto</button>
+        </Link>
         <ItemCount stock={5} initial= {1} onAdd={addToCart}/>
     </div>
     </div>

@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -8,11 +9,21 @@ function App() {
   const greeting = 'Bienvenido'
 
   return (
-    <div className="App">
-      <NavBar />
-      <ItemListContainer greeting = {greeting}/>
-      <ItemDetailContainer/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <NavBar />
+        <Routes>
+          <Route 
+            path ="/"
+            element ={
+              <ItemListContainer greeting = {greeting}/>
+            }
+          />
+          <Route path ="/detalle/:detalleId" element ={<ItemDetailContainer/>}/>
+          <Route path ="/*" element ={<Navigate to = "/"/>} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

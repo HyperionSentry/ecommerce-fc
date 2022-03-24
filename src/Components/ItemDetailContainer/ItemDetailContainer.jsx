@@ -1,6 +1,7 @@
 import {React, useEffect, useState} from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import {fetchBooks} from '../../fetchBooks/fetchBooks'
+import { useParams } from 'react-router-dom'
 
 function ItemDetailContainer() {
     const [prods, setProds] = useState({})
@@ -14,6 +15,7 @@ function ItemDetailContainer() {
       
       }, [])
 
+    const { detalleId } = useParams ()
 
   return (
     <div>
