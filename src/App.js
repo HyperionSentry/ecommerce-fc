@@ -10,19 +10,17 @@ function App() {
 
   return (
     <BrowserRouter>
+
       <div className="App">
-        <NavBar />
-        <Routes>
-          <Route 
-            path ="/"
-            element ={
-              <ItemListContainer greeting = {greeting}/>
-            }
-          />
+      <NavBar/>
+        <Routes>        
+          <Route path ="/" element ={<ItemListContainer greeting = {greeting}/>}/>
           <Route path ="/detalle/:detalleId" element ={<ItemDetailContainer/>}/>
+          <Route path ="/categoria/:categoriaTipo" element ={<ItemDetailContainer/>}/>
           <Route path ="/*" element ={<Navigate to = "/"/>} />
         </Routes>
       </div>
+
     </BrowserRouter>
   );
 }

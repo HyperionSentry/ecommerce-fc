@@ -4,18 +4,25 @@ import {fetchBooks} from '../../fetchBooks/fetchBooks'
 import { useParams } from 'react-router-dom'
 
 function ItemDetailContainer() {
-    const [prods, setProds] = useState({})
+    const [prods, setProds] = useState([])
     const [loading, setLoading] = useState(true)
   
+    const { detalleId, categoriaTipo } = useParams ()
+
     useEffect(() => {
         fetchBooks
-        .then( response => setProds(response.find(producto => producto.id === 1)))
+        .then( response => {
+          if (categoriaTipo == undefined) {
+            setProds(response.find(producto => producto.id === Number(detalleId)))
+          }else{
+            setProds(response.find(producto => producto.categoria === categoriaTipo))
+          }
+        })
         .catch( error => console.log(error) )
         .finally( () => setLoading(false) )
       
       }, [])
-
-    const { detalleId } = useParams ()
+      console.log(prods);
 
   return (
     <div>

@@ -1,38 +1,50 @@
 import React from 'react'
-import  { NavLink } from 'react-router-dom'
+import  { Link } from 'react-router-dom'
 import bookcase from '../../img/bookcase.png';
 import { Navbar, Nav,NavDropdown, Container  } from 'react-bootstrap';
 import CartWidget from '../CartWidget/CartWidget';
 import './NavBar.css'
 
+
 function NavBar() {
+
   return (
     <div className="App">
       <Navbar bg='dark' variant='dark' expand="lg">
         <Container>
           <Navbar.Brand>
-            <NavLink to ="/">
+            <Link to ="/">
               <img src={bookcase} alt="BookImage" className='img_Icon'/>
-            </NavLink>
+            </Link>
             Tienda de Libros
           </Navbar.Brand>
-          <NavLink to ="CartWidget">
+          <Link to ="CartWidget">
             <CartWidget />
-          </NavLink>
+          </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#Inicio">Inicio</Nav.Link>
-              <Nav.Link href="#Tienda">Tienda</Nav.Link>
+              <Nav.Link>
+                <Link className="navLink" to="/">
+                  Inicio
+                </Link>
+              </Nav.Link>
               <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#Ciencia Ficcion">Ciencia Ficción</NavDropdown.Item>
-                <NavDropdown.Item href="#Terror">Terror</NavDropdown.Item>
-                <NavDropdown.Item href="#Terror">Aventura</NavDropdown.Item>
-                <NavDropdown.Item href="#Terror">Didactico</NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link className="navLink" to="/categoria/Terror">Terror</Link>    
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link className="navLink" to="/categoria/Aventura">Aventura</Link> 
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link className="navLink" to="/categoria/Didactico">Didactico</Link>
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavLink to ="/">
-                  <NavDropdown.Item href="#Todas">Todas</NavDropdown.Item>
-               </NavLink> 
+                <NavDropdown.Item>
+                  <Link to ="/">
+                  Todas
+                </Link>
+               </NavDropdown.Item> 
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

@@ -4,7 +4,6 @@ import ItemCount from '../ItemCount/ItemCount'
 
 const addToCart = (prod) => {
   alert(`Se han agregado los libros al carrito.`)
-  console.log(prod.id);
 }
 
 
@@ -17,14 +16,14 @@ function Item(prod) {
     </div>
     <div className='card-body'>
         <img src={prod.pictureUrl} alt={prod.title} />
-        <div className='cardPrice'>${prod.price}</div> 
+        <div className='cardPrice'>{prod.price}</div> 
 
     </div>
     <div className='card-footer'>
-        <Link to ={`detalle/${prod.id}`}>
+        <Link to ={`/detalle/${prod.id}`}>
             <button className='btn btn-outline-primary btn-block'>Detalles del Producto</button>
         </Link>
-        <ItemCount stock={5} initial= {1} onAdd={addToCart}/>
+        <ItemCount stock={prod.stock} initial= {1} onAdd={addToCart}/>
     </div>
     </div>
 </div> 
