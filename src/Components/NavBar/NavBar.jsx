@@ -18,9 +18,6 @@ function NavBar() {
             </Link>
             Tienda de Libros
           </Navbar.Brand>
-          <Link to ="CartWidget">
-            <CartWidget />
-          </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -41,12 +38,13 @@ function NavBar() {
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item>
-                  <Link to ="/">
-                  Todas
-                </Link>
+                  <Link to ="/categoria/Todas">Todas</Link>
                </NavDropdown.Item> 
               </NavDropdown>
             </Nav>
+            <Link to ="CartWidget">
+            <CartWidget />
+          </Link>
           </Navbar.Collapse>
       </Container>
       </Navbar>

@@ -12,22 +12,24 @@ function ItemDetailContainer() {
     useEffect(() => {
         fetchBooks
         .then( response => {
-          if (categoriaTipo == undefined) {
-            setProds(response.find(producto => producto.id === Number(detalleId)))
-          }else{
-            setProds(response.find(producto => producto.categoria === categoriaTipo))
+          if (categoriaTipo === undefined) {
+              setProds([response.find(producto => producto.id === Number(detalleId))])             
+          } else if (categoriaTipo === 'Todas'){
+             setProds(response)
+          } else {
+            const result = response.filter(producto => producto.categoria === categoriaTipo);
+            setProds(result)
           }
         })
         .catch( error => console.log(error) )
         .finally( () => setLoading(false) )
       
       }, [])
-      console.log(prods);
 
   return (
-    <div>
-        <ItemDetail item = {prods} />
-    </div>
+    <>
+        {prods.map( (prod) =>  ItemDetail(prod))}
+    </>
   )
 }
 
