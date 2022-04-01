@@ -2,7 +2,7 @@ import  { React, useState, useEffect } from 'react'
 import ItemCount from '../ItemCount/ItemCount' 
 import  { Link } from 'react-router-dom'
 
-const finalAddToCart = () => {
+const FinalAddToCart = () => {
   return (
     <Link to='/cart'>
         <button className="btn btn-outline-primary" onClick={ console.log('Ir al carrito')}>Ir al carrito</button>
@@ -12,7 +12,7 @@ const finalAddToCart = () => {
 }
 
 
-function ItemDetail(item) {
+function ItemDetail({item}) {
 
   const addToCart = () => {
     //alert(`Se han agregado los libros al carrito.`)
@@ -37,7 +37,7 @@ function ItemDetail(item) {
               inputType === 'ItemCountButton' ?
                 <ItemCount stock={item.stock} initial= {amountBooks} addToCart={addToCart}/>
               :
-                <finalAddToCart/>
+                <FinalAddToCart/>
             }
 
         </div>

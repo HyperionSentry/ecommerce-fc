@@ -7,28 +7,21 @@ function ItemDetailContainer() {
     const [prods, setProds] = useState([])
     const [loading, setLoading] = useState(true)
   
-    const { detalleId, categoriaTipo } = useParams ()
+    const { detalleId } = useParams ()
 
     useEffect(() => {
         fetchBooks
-        .then( response => {
-          if (categoriaTipo === undefined) {
-              setProds([response.find(producto => producto.id === Number(detalleId))])             
-          } else if (categoriaTipo === 'Todas'){
-             setProds(response)
-          } else {
-            const result = response.filter(producto => producto.categoria === categoriaTipo);
-            setProds(result)
-          }
+        .then( response => {setProds(response.find(producto => producto.id === Number(detalleId)))
         })
-        .catch( error => console.log(error) )
-        .finally( () => setLoading(false) )
-      
-      }, [])
+        .catch(error => console.log(error))
+        .finally(() => setLoading(false))
+  
+    }, [])
 
   return (
     <>
-        {prods.map( (prod) =>  ItemDetail(prod))}
+        <ItemDetail item={prods} />
+
     </>
   )
 }
