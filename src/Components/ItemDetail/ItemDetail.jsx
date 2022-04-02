@@ -1,27 +1,35 @@
-import  { React, useState, useEffect } from 'react'
-import ItemCount from '../ItemCount/ItemCount' 
+import  { useState } from 'react'
 import  { Link } from 'react-router-dom'
+import { useCartContext } from '../../Context/CartContext'
+import ItemCount from '../ItemCount/ItemCount' 
+
 
 const FinalAddToCart = () => {
   return (
-    <Link to='/cart'>
-        <button className="btn btn-outline-primary" onClick={ console.log('Ir al carrito')}>Ir al carrito</button>
-    </Link>
+    <div className="mt-5">
+      <Link to='/cart'>
+        <button className="btn btn-outline-primary mx-2" onClick={ console.log('Finalizar')}>Finalizar</button>
+     </Link>
+      <Link to='/'>
+         <button className="btn btn-outline-primary mx-2" onClick={ console.log('Continuar Comprando')}>Continuar Comprando</button>
+      </Link>
+    </div>
+
   )
 
 }
 
 
 function ItemDetail({item}) {
+  const {addToCart} = useCartContext()
 
-  const addToCart = () => {
-    //alert(`Se han agregado los libros al carrito.`)
-    setAmountBooks(1)
-    console.log(amountBooks);
+  const onAdd = (cant) => {
+
     setinputType('addToCartButton')
+    addToCart({...item,  cantidad: cant})
   }
   const [inputType, setinputType] = useState('ItemCountButton')
-  const [amountBooks, setAmountBooks] = useState(1)
+
 
  
 
@@ -35,7 +43,7 @@ function ItemDetail({item}) {
             <p>{item.detail}</p>
             {
               inputType === 'ItemCountButton' ?
-                <ItemCount stock={item.stock} initial= {amountBooks} addToCart={addToCart}/>
+                <ItemCount stock={item.stock} initial= {1} onAdd={onAdd}/>
               :
                 <FinalAddToCart/>
             }

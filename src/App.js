@@ -5,23 +5,29 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer'
 import Cart from './Components/Cart/Cart';
+import CartContextProvider from './Context/CartContext';
+
+
 
 function App() {
   const greeting = 'Bienvenido'
+  console.log(CartContextProvider);
 
   return (
     <BrowserRouter>
+        <CartContextProvider>
+          <div className="App">
+            <NavBar/>
+            <Routes>        
+              <Route path ="/" element ={<ItemListContainer greeting = {greeting}/>}/>
+              <Route path ="/detalle/:detalleId" element ={<ItemDetailContainer/>}/>
+              <Route path ="/categoria/:categoriaTipo" element ={<ItemListContainer/>}/>
+              <Route path ="/cart" element ={<Cart/>}/>
+              <Route path ="/*" element ={<Navigate to = "/"/>} />
+            </Routes>
+          </div>
+        </CartContextProvider>
 
-      <div className="App">
-      <NavBar/>
-        <Routes>        
-          <Route path ="/" element ={<ItemListContainer greeting = {greeting}/>}/>
-          <Route path ="/detalle/:detalleId" element ={<ItemDetailContainer/>}/>
-          <Route path ="/categoria/:categoriaTipo" element ={<ItemListContainer/>}/>
-          <Route path ="/cart" element ={<Cart/>}/>
-          <Route path ="/*" element ={<Navigate to = "/"/>} />
-        </Routes>
-      </div>
 
     </BrowserRouter>
   );
