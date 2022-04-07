@@ -20,7 +20,7 @@ const FinalAddToCart = () => {
 }
 
 
-function ItemDetail({item}) {
+function ItemDetail({item,state}) {
   const {addToCart} = useCartContext()
 
   const onAdd = (cant) => {
@@ -36,6 +36,12 @@ function ItemDetail({item}) {
 
   return (
     <>
+        { 
+
+        state ? <h2>Cargando detalle...</h2> 
+        
+        : 
+        
         <div>
             <h1>{item.title}</h1>
             <h2>{item.price}</h2>
@@ -49,12 +55,11 @@ function ItemDetail({item}) {
             }
 
         </div>
+
+        }
+        
     </>
   )
 }
 
 export default ItemDetail
-
-
-// Hago click en onAdd y guardo en un estado la cantidad de elementos, 
-//desaparezco el ItemCount y hago aparecer un boton que diga Terminar mi compra que vaya hacia /cart

@@ -20,7 +20,7 @@ function ItemDetailContainer() {
 
   return (
     <>
-        <ItemDetail item={prods} />
+        <ItemDetail item={prods} state ={loading}/>
 
     </>
   )
