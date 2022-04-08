@@ -3,10 +3,13 @@ import  { Link } from 'react-router-dom'
 import bookcase from '../../img/bookcase.png';
 import { Navbar, Nav,NavDropdown, Container  } from 'react-bootstrap';
 import CartWidget from '../CartWidget/CartWidget';
+import { useCartContext } from '../../Context/CartContext'
 import './NavBar.css'
 
 
 function NavBar() {
+
+  const { cantidad, cartList } = useCartContext()
 
   return (
     <div className="App">
@@ -45,6 +48,7 @@ function NavBar() {
             <Link to ="/Cart">
             <CartWidget />
           </Link>
+          <small style={{color:'white'}}>{ cartList.length > 0 && cantidad()}</small>
           </Navbar.Collapse>
       </Container>
       </Navbar>

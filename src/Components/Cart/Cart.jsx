@@ -5,7 +5,6 @@ import { useCartContext } from '../../Context/CartContext'
 function Cart() {
 
   const { cartList, emptyCart, deleteOne, sumaTotal } = useCartContext()
-
   return (
     <div>
         {
@@ -43,7 +42,7 @@ function Cart() {
             &&
 
             <div>
-                <h4> `Total: ${sumaTotal()}` </h4>
+                <h4> Total: ${sumaTotal()} </h4>
                 <button className="btn btn-danger" onClick={emptyCart}>Vaciar carrito</button>
             </div>
 

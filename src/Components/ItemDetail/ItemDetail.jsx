@@ -2,7 +2,7 @@ import  { useState } from 'react'
 import  { Link } from 'react-router-dom'
 import { useCartContext } from '../../Context/CartContext'
 import ItemCount from '../ItemCount/ItemCount' 
-
+import './ItemDetail.css'
 
 const FinalAddToCart = () => {
   return (
@@ -16,36 +16,26 @@ const FinalAddToCart = () => {
     </div>
 
   )
-
 }
-
 
 function ItemDetail({item,state}) {
   const {addToCart} = useCartContext()
 
   const onAdd = (cant) => {
-
     setinputType('addToCartButton')
     addToCart({...item,  cantidad: cant})
   }
   const [inputType, setinputType] = useState('ItemCountButton')
 
-
- 
-
-
   return (
     <>
         { 
-
         state ? <h2>Cargando detalle...</h2> 
-        
         : 
-        
-        <div>
+        <div className='itemDetail'>
             <h1>{item.title}</h1>
-            <h2>{item.price}</h2>
-            <img src={item.pictureUrl} alt={item.title} />
+            <h2>${item.price}</h2>
+            <img src={item.pictureUrl} alt={item.title} className="itemImgDetail"/>
             <p>{item.detail}</p>
             {
               inputType === 'ItemCountButton' ?
@@ -53,11 +43,8 @@ function ItemDetail({item,state}) {
               :
                 <FinalAddToCart/>
             }
-
         </div>
-
-        }
-        
+        }  
     </>
   )
 }
