@@ -1,9 +1,8 @@
 import {React, useEffect, useState} from 'react'
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList'
-import {fetchBooks} from '../../fetchBooks/fetchBooks'
 import { useParams } from 'react-router-dom'
-
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 
 function ItemListContainer({ greeting }) {
 
@@ -11,25 +10,17 @@ function ItemListContainer({ greeting }) {
   const [loading, setLoading] = useState(true)
   const { categoriaTipo } = useParams ()
 
-  useEffect(() => {
-      fetchBooks
-      .then( response => {
-        if (categoriaTipo === 'Todas') {
-          setProds(response)
-          console.log(response);
-        } else if (categoriaTipo !== undefined){
-          const result = response.filter(producto => producto.categoria === categoriaTipo);
-          console.log(result);
-          setProds(result)
-        } else {
-          setProds(response)
-          console.log(response);
-        }
-      } )
-      .catch( error => console.log(error) )
-      .finally( () => setLoading(false) )
     
-    },[])  
+    useEffect(() => {
+      const db = getFirestore()
+      const queryCollection =  collection(db, 'items')
+      const filterQuery = categoriaTipo ? query(queryCollection, where('category', '==', categoriaTipo)) : queryCollection
+      getDocs(filterQuery)
+      .then(response => setProds(response.docs.map( prod => ({ id: prod.id, ...prod.data() }) )))
+      .catch(error => console.log(error))
+      .finally(() => setLoading(false))
+    
+    },[categoriaTipo]) 
 
   return (
   <>
