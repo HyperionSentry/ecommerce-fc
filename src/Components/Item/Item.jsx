@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ProgressBar } from 'loading-animations-react';
-
+import { Row, Col } from 'react-bootstrap'
 
 function Item({ prod, loading }) {
   return (
-    <div className='row'>
+    <div>
     { 
     
     ( loading )  
@@ -22,7 +22,7 @@ function Item({ prod, loading }) {
     : 
     (
  
-    <div key={prod.id} className='col-md-4'>  
+    <div key={prod.id} className='col-md-6'>  
         <div className='card w-100 mt-5'>
         <div className='card-header'>
             {`${prod.title} - ${prod.categoria}`}

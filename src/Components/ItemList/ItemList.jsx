@@ -8,36 +8,28 @@ function ItemList({products,state}) {
   return (
     <>
         { 
-        state 
-        
-        ? 
-
-        <ProgressBar borderColor="white" sliderColor="#5a58bfe0" sliderBackground="rgb(0,0,0)" className="progressBar" text="Buscando libros" />
-
-        : 
-        
-        products.map((prod)=> 
+          state 
           
-          <div key={prod.id}>
-            <Item prod={prod} loading={state}/>
-          </div> 
+          ? 
 
-        )
-        }
+            <ProgressBar borderColor="white" sliderColor="#5a58bfe0" sliderBackground="rgb(0,0,0)" className="progressBar" text="Buscando libros" />
+
+          : 
+          <div class="container">
+
+          {products.map((prod)=>{
+              return (
+              <div key={prod.id}>
+                <Item prod={prod} loading={state}/>
+              </div> 
+              )
+              } 
+            )
+          }
+          </div>
+
+          }
     </> 
-
-
-
-    // <div>
-    // { products.map((prod)=> 
-          
-    //       <div className='col-md-4 mb-5' key={prod.id}>
-    //         <Item prod={prod} loading={state}/>
-    //       </div>
-      
-    // )}
-    // </div>
-
     )
       
 }
