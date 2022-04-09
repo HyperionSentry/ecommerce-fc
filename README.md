@@ -15,4 +15,4 @@ FireBase
 Fernando Javier Caballero
 
 
-![ Alt text](https://github.com/HyperionSentry/ecommerce-fc/blob/aaec71f605b267aa65e9b1696e3193839c5f95a3/src/img/tienda-de-libros.gif)
+![ Alt text](https://github.com/HyperionSentry/ecommerce-fc/blob/f9ad6882d93def8b78b0af706ed2dfb82c0e4218/src/img/tienda-de-libros.gif)
