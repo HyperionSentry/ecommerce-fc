@@ -2,6 +2,7 @@ import  { useState } from 'react'
 import  { Link } from 'react-router-dom'
 import { useCartContext } from '../../Context/CartContext'
 import ItemCount from '../ItemCount/ItemCount' 
+import { ProgressBar } from 'loading-animations-react';
 import './ItemDetail.css'
 
 const FinalAddToCart = () => {
@@ -30,8 +31,18 @@ function ItemDetail({item,state}) {
   return (
     <>
         { 
-        state ? <h2>Cargando detalle...</h2> 
+        state ? 
+        
+        <ProgressBar
+        borderColor="white"
+        sliderColor="#5a58bfe0"
+        sliderBackground="rgb(0,0,0)"
+        className="progressBar"
+        text="Cargando Detalle"
+      />
+
         : 
+
         <div className='itemDetail'>
             <h1>{item.title}</h1>
             <h2>${item.price}</h2>
