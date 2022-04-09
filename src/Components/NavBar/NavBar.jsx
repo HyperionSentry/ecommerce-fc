@@ -41,7 +41,7 @@ function NavBar() {
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item>
-                  <Link to ="/categoria/Todas">Todas</Link>
+                  <Link className="navLink" to ="/categoria/Todas">Todas</Link>
                </NavDropdown.Item> 
               </NavDropdown>
             </Nav>
