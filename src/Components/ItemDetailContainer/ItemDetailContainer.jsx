@@ -19,7 +19,6 @@ function ItemDetailContainer() {
       .finally(() => setLoading(false))
 
   }, [detalleId])
-console.log(prods);
   return (
     <>
         <ItemDetail item={prods} state ={loading}/>

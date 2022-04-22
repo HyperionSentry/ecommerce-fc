@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ProgressBar } from 'loading-animations-react';
-import { Row, Col } from 'react-bootstrap'
 
 function Item({ prod, loading }) {
   return (

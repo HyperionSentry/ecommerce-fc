@@ -24,7 +24,6 @@ function Cart() {
 
       return {id, nombre, precio}
     } )
-    console.log(order);
     const db = getFirestore()
     const queryCollection = collection(db, 'orders')
     addDoc(queryCollection, order)

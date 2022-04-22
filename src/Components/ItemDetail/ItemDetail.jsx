@@ -9,10 +9,10 @@ const FinalAddToCart = () => {
   return (
     <div className="mt-5">
       <Link to='/cart'>
-        <button className="btn btn-outline-primary mx-2" onClick={ console.log('Finalizar')}>Finalizar</button>
+        <button className="btn btn-outline-primary mx-2">Finalizar</button>
      </Link>
       <Link to='/'>
-         <button className="btn btn-outline-primary mx-2" onClick={ console.log('Continuar Comprando')}>Continuar Comprando</button>
+         <button className="btn btn-outline-primary mx-2">Continuar Comprando</button>
       </Link>
     </div>
 

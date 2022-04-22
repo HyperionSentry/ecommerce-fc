@@ -11,7 +11,6 @@ import CartContextProvider from './Context/CartContext';
 
 function App() {
   const greeting = 'Bienvenido'
-  console.log(CartContextProvider);
 
   return (
     <BrowserRouter>
